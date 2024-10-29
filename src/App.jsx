@@ -1,6 +1,6 @@
 import "./App.css"
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from './features/auth/Login';
 import Profile from './features/auth/Profile'; // Your profile component
 import RequireAuth from "./features/auth/RequireAuth";
@@ -22,6 +22,7 @@ function App () {
       {/* Public routes */}
       <Route element={<RedirectIfLoggedIn />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Link to="/login" >Login</Link>} />
       </Route>
 
       {/* Protected routes */}

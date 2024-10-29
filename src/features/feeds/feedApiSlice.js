@@ -18,6 +18,7 @@ export const feedApiSlice = apiSlice.injectEndpoints({
             async onQueryStarted (arg, { dispatch, queryFulfilled }) {
                 try {
                     const { data } = await queryFulfilled;
+                    console.log(data, "query started");
                     dispatch(setFeedDetails({
                         totalDocs: data.totalDocs,
                         limit: data.limit,
@@ -41,7 +42,7 @@ export const feedApiSlice = apiSlice.injectEndpoints({
             },
 
             transformResponse: (response) => {
-                // console.log(response, "transformResponse");
+                console.log(response, "transformResponse");
                 return response.data;
             },
 
