@@ -47,6 +47,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'GET',
                 // credentials: 'include',  // Include cookies automatically
             }),
+            providesTags: ["User"],
             async onQueryStarted (arg, { dispatch, queryFulfilled }) {
                 try {
                     const { data } = await queryFulfilled;

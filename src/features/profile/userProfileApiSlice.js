@@ -6,19 +6,20 @@ export const userProfileApiSlice = apiSlice.injectEndpoints({
         getUserByUsername: builder.query({
             query: (username) => `/users/profile/${username}`,
             transformResponse: response => response.data,
+            providesTags: ["User"]
         }),
 
-        toggleLikeOfBlogById: builder.mutation({
+        toggleFollowById: builder.mutation({
             query: (id) => ({
-                url: `/blog/toggle-blog-like/${id}`,
+                url: `/users/toggle-follow/${id}`,
                 method: 'PUT',
                 // credentials: "include",
-                body: { id }
+                // body: { id }
             }),
             transformResponse: response => response.data,
-            invalidatesTags: ['Posts'],
+            invalidatesTags: ['User'],
         }),
     }),
 });
 
-export const { useGetUserByUsernameQuery } = userProfileApiSlice;
+export const { useGetUserByUsernameQuery, useToggleFollowByIdMutation } = userProfileApiSlice;

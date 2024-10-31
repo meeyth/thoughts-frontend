@@ -47,6 +47,9 @@ const Profile = () => {
                 <div>
                     <img src={stateUser?.avatar} alt={stateUser?.username} style={{ height: "5rem", borderRadius: "50%", aspectRatio: 1 }} />
                     <p>Welcome, <strong>{stateUser?.username}</strong>!</p>
+                    <p>Total Blogs:  <strong>{stateUser?.totalBlogs}</strong></p>
+                    <p>Total followers: <strong>{stateUser?.totalFollowers}</strong></p>
+                    <p>Total followings: <strong>{stateUser?.totalFollowings}</strong></p>
                 </div>
             ) : (
                 <p>No user data available. Please log in.</p>
