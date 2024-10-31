@@ -11,7 +11,7 @@ const BlogCard = ({ blog }) => {
             <p>{blog.content}</p>
             <img src={blog.image} alt={blog.title} style={{ height: "10rem", width: "15rem", objectFit: "contain" }} />
             <br />
-            <small>Written by: {blog.owner.username}</small>
+            <small>Written by: <Link to={`/users/${blog.owner.username}`}>{blog.owner.username}</Link></small>
             <br />
             <Link to={`/blogs/${blog._id}`}>Read More</Link>
             <p>Uploaded: <ReactTimeago date={blog.createdAt} /></p>

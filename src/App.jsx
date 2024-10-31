@@ -10,6 +10,7 @@ import Feed from "./features/feeds/Feed";
 import BlogDetailPage from "./features/blogs/BlogDetailPage";
 import LikedBlog from "./features/liked/LikedBlog";
 import Comment from "./features/comment/Comment";
+import UserProfile from "./features/profile/UserProfile";
 
 function App () {
 
@@ -31,6 +32,7 @@ function App () {
         <Route path="/feed" element={<Feed />} />
         <Route path="/liked" element={<LikedBlog />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
+        <Route path="/users/:username" element={<UserProfile />} />
         <Route path="/comments/:id" element={<Comment />} />
 
       </Route>
