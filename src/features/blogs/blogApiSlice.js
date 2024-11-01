@@ -23,7 +23,7 @@ export const blogApiSlice = apiSlice.injectEndpoints({
         }),
 
         isBlogLikedById: builder.query({
-            query: (id) => `/blog/is-blog-like/${id}`,
+            query: (id) => `/blog/is-blog-liked/${id}`,
             transformResponse: response => response.data,
             // credentials: "include",
             providesTags: ['Posts'],

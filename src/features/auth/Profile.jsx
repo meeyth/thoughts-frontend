@@ -48,8 +48,8 @@ const Profile = () => {
                     <img src={stateUser?.avatar} alt={stateUser?.username} style={{ height: "5rem", borderRadius: "50%", aspectRatio: 1 }} />
                     <p>Welcome, <strong>{stateUser?.username}</strong>!</p>
                     <p>Total Blogs:  <strong>{stateUser?.totalBlogs}</strong></p>
-                    <p>Total followers: <strong>{stateUser?.totalFollowers}</strong></p>
-                    <p>Total followings: <strong>{stateUser?.totalFollowings}</strong></p>
+                    <p>Total followers: <strong><Link to={`/followers/${stateUser?._id}`}>{stateUser?.totalFollowers}</Link></strong></p>
+                    <p>Total followings: <strong><Link to={`/followings/${stateUser?._id}`}>{stateUser?.totalFollowings}</Link></strong></p>
                 </div>
             ) : (
                 <p>No user data available. Please log in.</p>

@@ -3,8 +3,8 @@ import { useGetCommentOfBlogQuery } from './commentApiSlice'
 import { useParams } from 'react-router-dom';
 
 const Comment = () => {
-    const { id } = useParams();
-    const { data } = useGetCommentOfBlogQuery(id);
+    const { blogId } = useParams();
+    const { data } = useGetCommentOfBlogQuery(blogId);
 
     console.log(data);
 

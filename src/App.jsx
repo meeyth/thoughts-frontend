@@ -11,6 +11,8 @@ import BlogDetailPage from "./features/blogs/BlogDetailPage";
 import LikedBlog from "./features/liked/LikedBlog";
 import Comment from "./features/comment/Comment";
 import UserProfile from "./features/profile/UserProfile";
+import Followings from "./features/follow/Followings";
+import Followers from "./features/follow/Followers";
 
 function App () {
 
@@ -33,8 +35,9 @@ function App () {
         <Route path="/liked" element={<LikedBlog />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
         <Route path="/users/:username" element={<UserProfile />} />
-        <Route path="/comments/:id" element={<Comment />} />
-
+        <Route path="/comments/:blogId" element={<Comment />} />
+        <Route path="/followings/:userId" element={<Followings />} />
+        <Route path="/followers/:userId" element={<Followers />} />
       </Route>
 
       {/* Other public or protected routes */}
