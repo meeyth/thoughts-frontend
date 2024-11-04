@@ -10,17 +10,17 @@ const LikedBlog = () => {
 
     const likedDetails = useSelector(state => state.like.likedDetails)
 
-    console.log("likeddetails ",likedDetails);
+    console.log("likeddetails ", likedDetails);
     const { data, isLoading, isFetching, error } = useGetMyLikedBlogsQuery({ page: likedDetails.page, limit: 3 })
 
-    console.log("likedDetails.hasNextpage ",likedDetails?.hasNextPage)
+    console.log("likedDetails.hasNextpage ", likedDetails?.hasNextPage)
 
     console.log("data ", data);
 
     const handleScroll = useCallback(() => {
         if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 2 && likedDetails?.hasNextPage) {
             console.log("working", likedDetails.page)
-            
+
             dispatch(updateCurrentPageToNextPage({
                 ...likedDetails,
                 page: likedDetails.page + 1

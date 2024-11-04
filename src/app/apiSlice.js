@@ -5,7 +5,8 @@ import { setCredentials, logOut } from '../features/auth/authSlice';
 
 // Base query with automatic cookie handling
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://thoughts-backend-jxm7.onrender.com/api/v1',
+    // baseUrl: 'https://thoughts-backend-jxm7.onrender.com/api/v1',
+    baseUrl: 'https://thoughts-backend-production.up.railway.app/api/v1',
     // baseUrl: 'http://localhost:8000/api/v1',
     credentials: 'include',  // Automatically send cookies with requests
 

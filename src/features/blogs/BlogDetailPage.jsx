@@ -18,7 +18,7 @@ const BlogDetailPage = () => {
 
     const handleClick = async () => {
         const data = await toggleLikeOfBlogById(id).unwrap();
-        console.log(data, "data");
+        console.log(data, "dataaaaaaaaaaaaaaaaaaaaa");
     }
 
     console.log(blog, "A blog");
