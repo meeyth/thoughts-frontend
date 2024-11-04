@@ -15,13 +15,14 @@ const initialState = {
 };
 
 const feedDetailsSlice = createSlice({
-    name: 'feedfeedDetails',
+    name: 'feedDetails',
     initialState,
     reducers: {
         setFeedDetails: (state, action) => {
             state.feedDetails = action.payload;
         },
         updateCurrentPageToNextPage: (state, action) => {
+            console.log("action.payload  ",action.payload)
             console.log(action.payload.page, "updateCurrentPageToNextPage");
             state.feedDetails.page = action.payload.page
         }
