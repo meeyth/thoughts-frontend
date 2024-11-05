@@ -55,7 +55,11 @@ export const likeApiSlice = apiSlice.injectEndpoints({
                 };
             },
 
+<<<<<<< HEAD
+            forceRefetch({ currentArg, previousArg, }) {
+=======
             forceRefetch ({ currentArg, previousArg, }) {
+>>>>>>> 9f0313cd71cc63a73f7ad9032c0011d6c57f6fe6
                 return currentArg?.page != previousArg?.page;
             },
 
