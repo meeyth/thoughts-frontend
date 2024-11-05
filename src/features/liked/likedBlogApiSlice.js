@@ -10,9 +10,9 @@ export const likeApiSlice = apiSlice.injectEndpoints({
             query: ({ page = 1, limit = 3 }) => ({
                 url: `/blog/get-liked-blogs?page=${page}&limit=${limit}`,
                 method: 'GET',
-            }), 
+            }),
 
-            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+            async onQueryStarted (arg, { dispatch, queryFulfilled }) {
                 try {
                     const { data } = await queryFulfilled;
                     dispatch(setLikeDetails({
@@ -24,7 +24,7 @@ export const likeApiSlice = apiSlice.injectEndpoints({
                         hasPrevPage: data.hasPrevPage,
                         prevPage: data.prevPage,
                         nextPage: data.nextPage,
-                        pagingCounter:data.pagingCounter
+                        pagingCounter: data.pagingCounter
                     }))
                 } catch (error) {
                     console.error("Liked blogs fetched failed: ", error);
@@ -52,14 +52,18 @@ export const likeApiSlice = apiSlice.injectEndpoints({
                     prevPage: newItems.prevPage,
                     nextPage: newItems.nextPage,
                     pagingCounter: newItems.pagingCounter
-                };  
+                };
             },
 
+<<<<<<< HEAD
             forceRefetch({ currentArg, previousArg, }) {
+=======
+            forceRefetch ({ currentArg, previousArg, }) {
+>>>>>>> 9f0313cd71cc63a73f7ad9032c0011d6c57f6fe6
                 return currentArg?.page != previousArg?.page;
             },
 
-            providesTags: ['Posts'],
+
         })
     }),
 });
