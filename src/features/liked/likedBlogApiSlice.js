@@ -56,7 +56,7 @@ export const likeApiSlice = apiSlice.injectEndpoints({
             },
 
             forceRefetch({ currentArg, previousArg, }) {
-                return current?.page != previousArg?.page;
+                return currentArg?.page != previousArg?.page;
             },
 
             providesTags: ['Posts'],

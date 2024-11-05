@@ -1,4 +1,4 @@
-import "./App.css"
+// import "./index.css"
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from './features/auth/Login';
@@ -42,6 +42,8 @@ function App () {
 
       {/* Other public or protected routes */}
     </Routes>
+
+    
 
   );
 }
