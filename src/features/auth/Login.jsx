@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-    const [login, { isLoading }] = useLoginMutation();  // RTK Query mutation hook
-    const navigate = useNavigate();
+  const [login, { isLoading }] = useLoginMutation();  // RTK Query mutation hook
+  const navigate = useNavigate();
 
-    const [currentImage, setCurrentImage] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
 
   // Array of background images
   const bgImages = [
@@ -31,28 +31,28 @@ const Login = () => {
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, [bgImages.length]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        try {
-            // Trigger the login mutation and unwrap the result to handle success or error
-            await login({ username, email, password }).unwrap();
+    try {
+      // Trigger the login mutation and unwrap the result to handle success or error
+      await login({ username, email, password }).unwrap();
 
-            // Dispatch the action to store user credentials in Redux
+      // Dispatch the action to store user credentials in Redux
 
-            // console.log(userData.data.user, "LOGInnnnnnnn");
-            // dispatch(setCredentials({ user: userData.data.user }));
+      // console.log(userData.data.user, "LOGInnnnnnnn");
+      // dispatch(setCredentials({ user: userData.data.user }));
 
-            // Navigate to the profile or home page after successful login
-            navigate('/profile');
-        } catch (err) {
-            // Handle the error: show a message or update error state
-            setErrorMessage('Login failed: ' + (err?.data?.message || 'Unknown error'));
-        }
-    };
+      // Navigate to the profile or home page after successful login
+      navigate('/feed');
+    } catch (err) {
+      // Handle the error: show a message or update error state
+      setErrorMessage('Login failed: ' + (err?.data?.message || 'Unknown error'));
+    }
+  };
 
-    return (
-       
+  return (
+
     <div className="relative min-h-screen flex items-center justify-center w-full">
       {/* Background Image with animation */}
       <AnimatePresence wait>
@@ -82,15 +82,15 @@ const Login = () => {
             <label htmlFor="email" className="block text-sm font-medium text-gray-600">Username</label>
             <input
               type="text"
-              id="email" 
+              id="email"
               value={username}
               onChange={(e) => setUsername(e.target.value)} required
               className="w-full mt-1 p-2 border border-orange-300 rounded-lg focus:border-orange-300 focus:ring focus:ring-orange-200 outline-none"
             />
-            </div>
-                        
-            {/* Email */}
-            <div className="mb-4">
+          </div>
+
+          {/* Email */}
+          <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-600">Email</label>
             <input
               type="email"
@@ -100,7 +100,7 @@ const Login = () => {
               className="w-full mt-1 p-2 border border-orange-300 rounded-lg focus:border-orange-300 focus:ring focus:ring-orange-200 outline-none" required
             />
           </div>
-                        
+
 
           {/* Password */}
           <div className="mb-4">
@@ -114,30 +114,30 @@ const Login = () => {
             />
           </div>
 
-                        
+
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-            
+
           {/* Login Button */}
           <button
-            type="submit"  disabled={isLoading}
+            type="submit" disabled={isLoading}
             className="w-full bg-orange-400 text-white py-2 px-4 rounded-lg shadow-md hover:bg-white hover:text-orange-500 transition-all">
             {isLoading ? 'Logging in...' : 'Login'}
           </button>
 
-            
+
           {/* Create Account and Other Login Options */}
           <div className="text-center mt-4">
             <p className="text-sm text-gray-500">
               Don’t have an account? <a href="#" className="text-orange-600 hover:underline">Create Account</a>
             </p>
           </div>
-          
+
         </form>
       </div>
     </div>
-        
-        
-    );
+
+
+  );
 };
 
 export default Login;

@@ -5,13 +5,14 @@ import ReactTimeago from 'react-timeago';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCurrentPageToNextPage } from './feedSlice';
 import BlogCard from '../../components/BlogCard';
+import MainSection from '../../components/MainSection';
 
 const Feed = () => {
 
     const dispatch = useDispatch()
 
     const feedDetails = useSelector(state => state.feed.feedDetails);
-    const { data, isLoading, isFetching, error } = useGetFeedQuery({ page: feedDetails.page, limit: 3 });
+    const { data, isLoading, isFetching, error } = useGetFeedQuery({ page: feedDetails.page, limit: 6 });
 
     // console.log(data, "feed details in Feed.jsx");
 
@@ -44,10 +45,15 @@ const Feed = () => {
     // console.log(feed?.data?.docs);
     return (
         <>
-            <h1>Feed</h1>
-            {data?.docs?.map((blog) => (
-                <BlogCard key={blog._id} blog={blog} />
-            ))}
+            <MainSection />
+            <div className="container mx-auto p-4 ">
+                <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {data?.docs?.map((blog) => (
+                        <BlogCard key={blog._id} blog={blog} />
+                    ))}
+                </div>
+            </div>
+
             {isFetching && <p>Loading more blogs...</p>}
             {!data.hasNextPage && <p>You reached the end of the page</p>}
         </>
